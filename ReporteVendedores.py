@@ -1,3 +1,4 @@
+import os
 import time
 import pandas as pd
 from selenium import webdriver
@@ -12,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 df = pd.read_excel('Excel prueba reportes.xlsx')
 
 # Configurar Selenium y abrir WhatsApp Web
-driver_path = r'C:\Users\rorro\Downloads\Enviar reporte a vendedores\chromedriver-win64/chromedriver.exe'
+driver_path = r'chromedriver-win64/chromedriver.exe'
 chrome_options = Options()
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -25,7 +26,7 @@ WebDriverWait(driver, 60).until(
 
 for index, row in df.iterrows():
     phone = row['Telefono']
-    foto_path = row['Foto']
+    foto_path = os.path.join(os.getcwd(), row['Foto'])
 
     # Buscar el contacto
     search_box = WebDriverWait(driver, 10).until(
