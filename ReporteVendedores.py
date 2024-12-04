@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # Leer el archivo Excel
-df = pd.read_excel('Excel prueba reportes.xlsx')
+df = pd.read_excel('Excel_contactos_fotos.xlsx')
 
 # Configurar Selenium y abrir WhatsApp Web
 driver_path = r'chromedriver-win64/chromedriver.exe'
